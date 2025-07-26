@@ -1,17 +1,17 @@
 
-const mongoose = require("mongoose");
-
-mongoose.connect()
+const mongoose = require("mongoose")
+require("dotenv").config();
+mongoose.connect(process.env.MONGODB_URL)
 
 const UserSchema = mongoose.Schema({
-    username: String,
-    password: String,
-    privateKey: String,
-    publicKey: String
+	username: String,
+	password: String,
+	privateKey: String,
+	publicKey: String,
 })
 
-const userModel = mongoose.Model("users", UserSchema);
+const userModel = mongoose.model("users", UserSchema)
 
 module.exports = {
-    userModel
+	userModel
 }
